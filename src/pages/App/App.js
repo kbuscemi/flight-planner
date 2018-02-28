@@ -7,13 +7,16 @@ import {
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import userService from '../../utils/userService';
+import HomePage from '../../components/HomePage/HomePage';
 import LandingPage from '../LandingPage/LandingPage';
+import History from '../../components/HistoryPage/HistoryPage';
 
 
 class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            flights: []
 
         }
     }
@@ -34,6 +37,11 @@ class App extends Component {
     componentDidMount() {
         let user = userService.getUser();
         this.setState({user});
+
+        fetch("api/flights")
+            .then(res => res.json())
+            .then(flights => this.setState({flights}))
+            .catch(err => console.log(err))
     }
 
     render() {
@@ -41,8 +49,11 @@ class App extends Component {
             <div>
             <Router>
                 <Switch>
-                    <Route exact path='/' render={() => 
-                    <LandingPage
+                    <Route exact path='/' render={() =>
+                    <LandingPage />
+                    }/>
+                    <Route exact path='/homepage' render={() => 
+                    <HomePage
                         user={this.state.user}
                         handleLogout={this.handleLogout}
                     />
@@ -58,6 +69,9 @@ class App extends Component {
                             {...props}
                             handleLogin={this.handleLogin}
                         />
+                    }/>
+                    <Route exact path='/history' render={() =>
+                        <History flights={this.state.flights} />
                     }/>
                 </Switch>
             </Router>

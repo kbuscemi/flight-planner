@@ -22,7 +22,7 @@ class LoginForm extends Component {
     userService.login(this.state)
       .then(() => {
         this.props.handleLogin();
-        this.props.history.push('/');
+        this.props.history.push('/homepage');
       })
       .catch(err => console.log(err))
   }
