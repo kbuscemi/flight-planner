@@ -14,12 +14,24 @@ import FlightPlanner from '../../components/FlightPlanner/FlightPlanner';
 
 
 class App extends Component {
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
         this.state = {
-            flights: []
-            // flightPlan: []
-
+            flights: [],
+            // aircraft: null,
+            // tailNumber: null,
+            // flightFuel: 0,
+            // departure: '',
+            // destination: '',
+            // date: null,
+            // weight: 0,
+            // distance: 0,
+            // dayTakeoff: false,
+            // dayLanding: false,
+            // nightTakeoff: false,
+            // nightLanding: false,
+            coPilotName: "",
+            // route: 0
         }
     }
 
@@ -36,19 +48,11 @@ class App extends Component {
         this.setState({user: userService.getUser()});
     }
 
-    // addFlightPlan = (id) => {
-    //     fetch("api/flights", {
-    //         method: 'POST',
-    //         headers: {
-    //             "Content-Type": "application/json"
-    //         },
-    //         body: JSON.stringify({
-    //             flightId: flightId
-    //         })       
-    //     })
-    //     .then(() => console.log('yay'))
-    //     .catch(err => console.log(err))
-    // }
+    onChangeCoPilot = (e) => {
+        this.setState({
+            coPilotName: e.target.value
+        })
+    }
 
     componentDidMount() {
         let user = userService.getUser();
@@ -59,6 +63,22 @@ class App extends Component {
             .then(flights => this.setState({flights}))
             .catch(err => console.log(err))
     }
+
+    addFlightPlan = (e) => {
+        e.preventDefault();
+        fetch("api/flights", {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                coPilot: this.state.coPilotName
+            })       
+        })
+        .then(() => console.log('yay'))
+        .catch(err => console.log(err))
+    }
+
 
     render() {
         return (
@@ -92,6 +112,9 @@ class App extends Component {
                     <Route exact path='/planner' render={() =>
                         <FlightPlanner
                             // flights={this.state.flights}
+                            onChangeCoPilot={this.onChangeCoPilot}
+                            coPilotName={this.state.coPilotName}
+                            addFlightPlan={this.addFlightPlan}
                         />
                     }/>
 

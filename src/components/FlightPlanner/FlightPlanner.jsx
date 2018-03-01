@@ -3,10 +3,11 @@ import { Link } from 'react-router-dom';
 import './FlightPlanner.css';
 import {Row, 
         Input,
-        Autocomplete
+        Autocomplete,
+        Button
     } from 'react-materialize'
 
-const FlightPlanner = () => {
+const FlightPlanner = ({onChangeCoPilot, coPilot, addFlightPlan}) => {
     return (
         <div>
           <div>
@@ -15,9 +16,9 @@ const FlightPlanner = () => {
             <Link to='/history'>Flight History</Link>
           </div>
             <h3>Flight Planner</h3>
-            <form action="#" className='formContainer'>
+            <form action="#" className='formContainer' onSubmit={addFlightPlan}>
                 <div className='column'>
-                    <div>
+                    {/* <div>
                         <Row>
                             <Input s={6} type='select' label='Select an Aircraft' defaultValue='2'>
                                 <option value='SLG2'>SLG2</option>
@@ -38,13 +39,14 @@ const FlightPlanner = () => {
                                     }
                                 }/>
                         </Row>
-                    </div>
+                    </div> */}
                     <div>
                         <Row>
-                            <Input s={6} label='Co-Pilot (if any)' />
+                            <Input s={6} value={coPilot} onChange={onChangeCoPilot} label='Co-Pilot (if any)' />
                         </Row>
                     </div>
-                    <div>
+                </div>
+                    {/* <div>
                         <Row>
                             <Input label='Date of Flight' type='date' onChange={function(e, value) {}} />
                         </Row>
@@ -94,6 +96,10 @@ const FlightPlanner = () => {
                         </Row>
                     </div>
                 </div>
+                <div>
+                    <Button type='submit'>Submit</Button>
+                </div> */}
+                <Button><input type='submit' value='Flight Plan'/>Submit</Button>
             </form>
         </div>
     )
