@@ -18,14 +18,13 @@ class App extends Component {
         super();
         this.state = {
             flights: [],
-            // aircraft: null,
-            // tailNumber: null,
-            // flightFuel: 0,
+            selectAircraft: 'SLG2',
+            selectTailNumber: 'N166TW (SLG2)',
             selectDeparture: '',
             selectDestination: '',
-            // selectDate: '',
-            // weight: 0,
-            enterDistance: 0,
+            selectDate: null,
+            enterTime: 0,
+            enterAltitude: 0,
             selectDayTakeoff: false,
             selectDayLanding: false,
             selectNightTakeoff: false,
@@ -48,6 +47,18 @@ class App extends Component {
         this.setState({user: userService.getUser()});
     }
 
+    onChangeAircraft = (e) => {
+        this.setState({
+            selectAircraft: e.target.value
+        })
+    }
+
+    onChangeTailNumber = (e) => {
+        this.setState({
+            selectTailNumber: e.target.value
+        })
+    }
+
     onChangeCoPilot = (e) => {
         this.setState({
             coPilotName: e.target.value
@@ -63,6 +74,24 @@ class App extends Component {
     onChangeDestination = (e) => {
         this.setState({
             selectDestination: e.target.value
+        })
+    }
+
+    onChangeDate = (e) => {
+        this.setState({
+            selectDate: e.target.value
+        })
+    }
+
+    onChangeTime = (e) => {
+        this.setState({
+            enterTime: e.target.value
+        })
+    }
+
+    onChangeAltitude = (e) => {
+        this.setState({
+            enterAltitude: e.target.value
         })
     }
 
@@ -110,18 +139,6 @@ class App extends Component {
         })
     }
 
-    onChangeDistance = (e) => {
-        this.setState({
-            enterDistance: e.target.value
-        })
-    }
-
-    // onChangeDate = (e) => {
-    //     this.setState({
-    //         selectDate: e.target.value
-    //     })
-    // }
-
     componentDidMount() {
         let user = userService.getUser();
         this.setState({user});
@@ -141,15 +158,18 @@ class App extends Component {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
+                aircraft: this.state.selectAircraft,
+                tailNumber: this.state.selectTailNumber,
                 coPilot: this.state.coPilotName,
                 departure: this.state.selectDeparture,
                 destination: this.state.selectDestination,
+                date: this.state.selectDate,
+                time: this.state.enterTime,
+                altitude: this.state.enterAltitude,
                 dayTakeoff: this.state.selectDayTakeoff,
                 dayLanding: this.state.selectDayLanding,
-                distance: this.state.enterDistance,
                 nightTakeoff: this.state.selectNightTakeoff,
                 nightLanding: this.state.selectNightLanding
-                // date: this.state.selectDate
             })       
         })
         .then(() => console.log('yay'))
@@ -190,18 +210,26 @@ class App extends Component {
                         <FlightPlanner
                             // flights={this.state.flights}
                             addFlightPlan={this.addFlightPlan}
+                            onChangeAircraft={this.onChangeAircraft}
+                            selectAircraft={this.state.selectAircraft}
+                            onChangeTailNumber={this.onChangeTailNumber}
+                            selectTailNumber={this.state.selectTailNumber}
                             onChangeCoPilot={this.onChangeCoPilot}
                             coPilotName={this.state.coPilotName}
                             onChangeDeparture={this.onChangeDeparture}
                             selectDeparture={this.state.selectDeparture}
                             onChangeDestination={this.onChangeDestination}
                             selectDestination={this.state.selectDestination}
+                            onChangeAltitude={this.onChangeAltitude}
+                            enterAltitude={this.state.enterAltitude}
+                            onChangeDate={this.onChangeDate}
+                            selectDate={this.state.selectDate}
+                            onChangeTime={this.onChangeTime}
+                            enterTime={this.state.enterTime}
                             onClickDayTakeoff={this.onClickDayTakeoff}
                             selectDayTakeoff={this.state.selectDayTakeoff}
                             onClickDayLanding={this.onClickDayLanding}
                             selectDayLanding={this.state.selectDayLanding}
-                            onChangeDistance={this.onChangeDistance}
-                            enterDistance={this.state.enterDistance}
                             onClickNightTakeoff={this.onClickNightTakeoff}
                             selectNightTakeoff={this.state.selectNightTakeoff}
                             onClickNightLanding={this.onClickNightLanding}

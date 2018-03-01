@@ -3,11 +3,15 @@ import { Link } from 'react-router-dom';
 import './FlightPlanner.css';
 import {Row, 
         Input,
+        Modal,
         Autocomplete,
         Button
     } from 'react-materialize'
 
-const FlightPlanner = ({ addFlightPlan, coPilot, onChangeCoPilot, onChangeDeparture, departure, onClickDayTakeoff, dayTakeoff, onClickDayLanding, dayLanding, onChangeDistance, distance, onClickNightTakeoff, nightTakeoff, onClickNightLanding, nightLanding}) => {
+const FlightPlanner = ({ addFlightPlan, aircraft, onChangeAircraft, tailNumber, onChangeTailNumber, coPilot, onChangeCoPilot, onChangeDeparture, departure, onChangeDestination, destination, onChangeDate, date, altitude, onChangeAltitude, onClickDayTakeoff, dayTakeoff, onClickDayLanding, dayLanding, onChangeTime, time, onClickNightTakeoff, nightTakeoff, onClickNightLanding, nightLanding}) => {
+    let x;
+
+    console.log(x)
     return (
         <div>
           <div>
@@ -16,38 +20,29 @@ const FlightPlanner = ({ addFlightPlan, coPilot, onChangeCoPilot, onChangeDepart
             <Link to='/history'>Flight History</Link>
           </div>
             <h3>Flight Planner</h3>
-            <form action="#" className='formContainer' onSubmit={addFlightPlan}>
+            <form action="#" className='formContainer' ref={domNode => x = domNode}>
                 <div className='column'>
-                    {/* <div>
-                        <Row>
-                            <Input s={6} type='select' label='Select an Aircraft' defaultValue='2'>
-                                <option value='SLG2'>SLG2</option>
-                                <option value='PA-44 Seminole'>PA-44 Seminole</option>
-                                <option value='172S Skyhawk'>172S Skyhawk</option>
-                            </Input>
-                        </Row>
-                    </div> */}
-                    {/* <div>
-                        <Row>
-                            <Autocomplete
-                                title='Tail Number'
-                                data={
-                                    {
-                                        'N166TW': null,
-                                        'N238AT': null,
-                                        'N997RA': null
-                                    }
-                                }/>
-                        </Row>
-                    </div> */}
                     <div>
                         <Row>
-                            <Input s={6} value={coPilot} onChange={onChangeCoPilot} label='Co-Pilot (if any)' />
+                            <Input s={6} value={aircraft} onChange={onChangeAircraft} type='select' label='Select Aircraft' defaultValue='2'>
+                                <option value='SLG2'>SLG2</option>
+                                <option value='PA-44 Seminole'>PA-44 Seminole</option>
+                                <option value='172S-Skyhawk-C172'>172S Skyhawk-C172</option>
+                            </Input>
                         </Row>
                     </div>
                     <div>
                         <Row>
-                            <Input label='Date of Flight' className='datepicker' type='date' onChange={function(e, value) {}} />
+                            <Input s={6} value={tailNumber} onChange={onChangeTailNumber} type='select' label='Select TailNumber' defaultValue='2'>
+                                <option value='N166TW'>N166TW (SLG2)</option>
+                                <option value='N238AT'>N238AT (Seminole)</option>
+                                <option value='N997RA'>N997RA (Skyhawk)</option>
+                            </Input>
+                        </Row>
+                    </div>
+                    <div>
+                        <Row>
+                            <Input s={6} value={coPilot} onChange={onChangeCoPilot} label='Co-Pilot (if any)' />
                         </Row>
                     </div>
                     <div>
@@ -57,11 +52,21 @@ const FlightPlanner = ({ addFlightPlan, coPilot, onChangeCoPilot, onChangeDepart
                     </div>
                     <div>
                         <Row>
-                            <Input s={6} label='Destination Airport' />
+                            <Input s={6} value={destination} onChange={onChangeDestination} label='Destination Airport' />
                         </Row>
                     </div>
                 </div>
                 <div className='column'>
+                    <div>
+                        <Row>
+                            <Input value={date} label='Date of Flight' className='datepicker' type='date' onChange={onChangeDate} />
+                        </Row>
+                    </div>
+                    <div>
+                        <Row>
+                            <Input s={6} value={altitude} onChange={onChangeAltitude} label='Cruise Altitude' />
+                        </Row>
+                    </div>
                     {/* <div>
                         <Row>
                             <Input s={6} label='Route' />
@@ -69,7 +74,7 @@ const FlightPlanner = ({ addFlightPlan, coPilot, onChangeCoPilot, onChangeDepart
                     </div> */}
                     <div>
                         <Row>
-                            <Input s={6} value={distance} onChange={onChangeDistance} label='Distance' />
+                            <Input s={6} value={time} onChange={onChangeTime} label='Total Time (hrs)' />
                         </Row>
                     </div>
                     <div>
@@ -96,9 +101,14 @@ const FlightPlanner = ({ addFlightPlan, coPilot, onChangeCoPilot, onChangeDepart
                     </div> */}
                 </div>
                 <div> 
-                    <Button type='submit'>Submit</Button>
+                    <Modal
+                        header="Please Read"
+                        trigger={<Button onClick={() => console.log('yoi')}>Done</Button>}
+                    >
+                        <p> Please confirm that the information you entered is correct. Once you click 'Submit' you will not be able to make any changes to your flight plan.</p>
+                        <Button type="submit" onClick={addFlightPlan}>Submit</Button>
+                    </Modal>
                 </div>
-                {/* <Button><input type='submit' value='Flight Plan'/>Submit</Button> */}
             </form>
         </div>
     )

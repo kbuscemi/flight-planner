@@ -3,19 +3,19 @@ const mongoose = require('mongoose');
 var flightSchema = new mongoose.Schema ({
     aircraft: {
         type: String, 
-        enum: ["SLG2", "PA-44 Seminole", "172S Skyhawk (C172)" ]
+        enum: ["SLG2", "PA-44 Seminole", "172S-Skyhawk-C172" ],
+        required: true
     },
     tailNumber: {
         type: String, 
-        enum: ["N166TW", "N238AT", "N997RA"]
+        enum: ["N166TW", "N238AT", "N997RA"],
+        required: true
     },
-    flightFuel: Number,
     departure: String,
     destination: String,
-    // altitude: Number,
+    altitude: Number,
     date: String,
-    weight: Number,
-    distance: Number,
+    time: Number,
     // from: Number,
     // to: Number,
     dayTakeoff: {type: Boolean, default: false},
