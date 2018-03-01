@@ -20,7 +20,16 @@ function allFlights(req, res) {
 function createFlight(req, res) {
     let flightPlan = new Flight;
 
+    // flightPlan.date = req.body.date
     flightPlan.coPilot = req.body.coPilot
+    flightPlan.departure = req.body.departure
+    flightPlan.distance = parseInt(req.body.distance)
+    flightPlan.dayTakeoff = req.body.dayTakeoff
+    flightPlan.dayLanding = req.body.dayLanding
+    flightPlan.nightTakeoff = req.body.nightTakeoff
+    flightPlan.nightLanding = req.body.nightLanding
+
+
     flightPlan.save((err) => {
         if (err) console.log(err)
         console.log(flightPlan)

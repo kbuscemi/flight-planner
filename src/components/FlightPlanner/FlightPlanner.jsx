@@ -7,7 +7,7 @@ import {Row,
         Button
     } from 'react-materialize'
 
-const FlightPlanner = ({onChangeCoPilot, coPilot, addFlightPlan}) => {
+const FlightPlanner = ({ addFlightPlan, coPilot, onChangeCoPilot, onChangeDeparture, departure, onClickDayTakeoff, dayTakeoff, onClickDayLanding, dayLanding, onChangeDistance, distance, onClickNightTakeoff, nightTakeoff, onClickNightLanding, nightLanding}) => {
     return (
         <div>
           <div>
@@ -26,8 +26,8 @@ const FlightPlanner = ({onChangeCoPilot, coPilot, addFlightPlan}) => {
                                 <option value='172S Skyhawk'>172S Skyhawk</option>
                             </Input>
                         </Row>
-                    </div>
-                    <div>
+                    </div> */}
+                    {/* <div>
                         <Row>
                             <Autocomplete
                                 title='Tail Number'
@@ -45,15 +45,14 @@ const FlightPlanner = ({onChangeCoPilot, coPilot, addFlightPlan}) => {
                             <Input s={6} value={coPilot} onChange={onChangeCoPilot} label='Co-Pilot (if any)' />
                         </Row>
                     </div>
-                </div>
-                    {/* <div>
+                    <div>
                         <Row>
-                            <Input label='Date of Flight' type='date' onChange={function(e, value) {}} />
+                            <Input label='Date of Flight' className='datepicker' type='date' onChange={function(e, value) {}} />
                         </Row>
                     </div>
                     <div>
                         <Row>
-                            <Input s={6} label='Departure Airport' />
+                            <Input s={6} value={departure} onChange={onChangeDeparture} label='Departure Airport' />
                         </Row>
                     </div>
                     <div>
@@ -63,43 +62,43 @@ const FlightPlanner = ({onChangeCoPilot, coPilot, addFlightPlan}) => {
                     </div>
                 </div>
                 <div className='column'>
-                    <div>
+                    {/* <div>
                         <Row>
                             <Input s={6} label='Route' />
                         </Row>
-                    </div>
+                    </div> */}
                     <div>
                         <Row>
-                            <Input s={6} label='Distance' />
+                            <Input s={6} value={distance} onChange={onChangeDistance} label='Distance' />
                         </Row>
                     </div>
                     <div>
                         <Row>
-                            <Input name='group1' type='checkbox' label='Day Takeoff' />
-                            <Input name='group1' type='checkbox' label='Day Landing' />
+                            <Input name='group1' type='checkbox' checked={dayTakeoff} onClick={onClickDayTakeoff} label='Day Takeoff' />
+                            <Input name='group1' type='checkbox' checked={dayLanding} onClick={onClickDayLanding} label='Day Landing' />
                         </Row>
                     </div>
                     <div>
                         <Row>
-                            <Input name='group2' type='checkbox' label='Night Takeoff' />
-                            <Input name='group2' type='checkbox' label='Night Landing' />
+                            <Input name='group2' type='checkbox' checked={nightTakeoff} onClick={onClickNightTakeoff} label='Night Takeoff' />
+                            <Input name='group2' type='checkbox' checked={nightLanding} onClick={onClickNightLanding} label='Night Landing' />
                         </Row>
                     </div>
-                    <div>
+                    {/* <div>
                         <Row>
                             <Input s={6} label='Longitude' />
                         </Row>
-                    </div>
-                    <div>
+                    </div> */}
+                    {/* <div>
                         <Row>
                             <Input s={6} label='Latitude' />
                         </Row>
-                    </div>
+                    </div> */}
                 </div>
-                <div>
+                <div> 
                     <Button type='submit'>Submit</Button>
-                </div> */}
-                <Button><input type='submit' value='Flight Plan'/>Submit</Button>
+                </div>
+                {/* <Button><input type='submit' value='Flight Plan'/>Submit</Button> */}
             </form>
         </div>
     )

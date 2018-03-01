@@ -9,11 +9,11 @@ var flightSchema = new mongoose.Schema ({
         type: String, 
         enum: ["N166TW", "N238AT", "N997RA"]
     },
-    flightFuel: String,
+    flightFuel: Number,
     departure: String,
     destination: String,
     // altitude: Number,
-    date: Number,
+    date: String,
     weight: Number,
     distance: Number,
     // from: Number,
