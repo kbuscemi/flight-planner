@@ -1,0 +1,18 @@
+.formContainer {
+    display: flex;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+    margin: 50px 0 0 200px;
+}
+
+.column {
+    width: 40%;
+    padding: 0 50px 0 50px;
+
+}
+
+h3 {
+    text-align: center;
+}
+

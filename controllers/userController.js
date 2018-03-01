@@ -36,18 +36,11 @@ function login(req, res) {
     }).catch(err => res.status(401).json(err));
 }
 
-// function createPlan(req, res) {
-//     let newPlan = new Plan;
-//     newPlan.flights.push(req.body.id);
-//     newPlan.save((err) => {
-//         if (err) console.log(err);
-//         console.log(newPlan)
-//         res.json('this worked').status(200);
-//     })
-// }
+
+
+
 
 module.exports = {
     signup,
     login,
-    // createPlan
 };

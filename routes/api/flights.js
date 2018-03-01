@@ -4,5 +4,6 @@ const flightCtrl = require('../../controllers/flightController');
 
 
 router.get('/', flightCtrl.allFlights);
+router.post('/', flightCtrl.createFlight);
 
 module.exports = router;

@@ -10,6 +10,7 @@ import userService from '../../utils/userService';
 import HomePage from '../../components/HomePage/HomePage';
 import LandingPage from '../LandingPage/LandingPage';
 import History from '../../components/HistoryPage/HistoryPage';
+import FlightPlanner from '../../components/FlightPlanner/FlightPlanner';
 
 
 class App extends Component {
@@ -17,6 +18,7 @@ class App extends Component {
         super(props);
         this.state = {
             flights: []
+            // flightPlan: []
 
         }
     }
@@ -33,6 +35,20 @@ class App extends Component {
     handleLogin = () => {
         this.setState({user: userService.getUser()});
     }
+
+    // addFlightPlan = (id) => {
+    //     fetch("api/flights", {
+    //         method: 'POST',
+    //         headers: {
+    //             "Content-Type": "application/json"
+    //         },
+    //         body: JSON.stringify({
+    //             flightId: flightId
+    //         })       
+    //     })
+    //     .then(() => console.log('yay'))
+    //     .catch(err => console.log(err))
+    // }
 
     componentDidMount() {
         let user = userService.getUser();
@@ -71,8 +87,14 @@ class App extends Component {
                         />
                     }/>
                     <Route exact path='/history' render={() =>
-                        <History flights={this.state.flights} />
+                        <History />
                     }/>
+                    <Route exact path='/planner' render={() =>
+                        <FlightPlanner
+                            // flights={this.state.flights}
+                        />
+                    }/>
+
                 </Switch>
             </Router>
             </div>

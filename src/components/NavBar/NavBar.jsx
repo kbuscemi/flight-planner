@@ -12,7 +12,7 @@ const NavBar = (props) => {
                 <span className='NavBar-welcome'>Welcome, {props.user.firstName}</span>
             </div>
             <div>
-                <Link to='/history' className='NavBar-link'>History</Link>
+                <Link to='/history' className='NavBar-link'>Flight History</Link>
                 &nbsp;&nbsp;|&nbsp;&nbsp;
                 <Link to='/planner' className='NavBar-link'>Flight Planner</Link>
             </div>
