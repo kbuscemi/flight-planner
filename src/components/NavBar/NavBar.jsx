@@ -15,6 +15,8 @@ const NavBar = (props) => {
                 <Link to='/history' className='NavBar-link'>Flight History</Link>
                 &nbsp;&nbsp;|&nbsp;&nbsp;
                 <Link to='/planner' className='NavBar-link'>Flight Planner</Link>
+                &nbsp;&nbsp;|&nbsp;&nbsp;
+                <Link to='/map' className='NavBar-link'>Google Maps</Link>
             </div>
         </div>
         :

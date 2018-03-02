@@ -8,6 +8,8 @@ const History = () => {
                 <Link to="/homepage">Back</Link>
                 &nbsp;&nbsp;|&nbsp;&nbsp;
                 <Link to="planner">Flight Planner</Link>
+                &nbsp;&nbsp;|&nbsp;&nbsp;
+                <Link to='/map' className='NavBar-link'>Google Maps</Link>
             </div>
             <h3>History Page</h3>
         </div>

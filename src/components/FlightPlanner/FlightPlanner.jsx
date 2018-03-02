@@ -18,6 +18,8 @@ const FlightPlanner = ({ addFlightPlan, aircraft, onChangeAircraft, tailNumber, 
             <Link to='/homepage'>Back</Link>
             &nbsp;&nbsp;|&nbsp;&nbsp;
             <Link to='/history'>Flight History</Link>
+            &nbsp;&nbsp;|&nbsp;&nbsp;
+            <Link to='/map' className='NavBar-link'>Google Maps</Link>
           </div>
             <h3>Flight Planner</h3>
             <form action="#" className='formContainer' ref={domNode => x = domNode}>

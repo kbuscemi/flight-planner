@@ -11,6 +11,7 @@ import HomePage from '../../components/HomePage/HomePage';
 import LandingPage from '../LandingPage/LandingPage';
 import History from '../../components/HistoryPage/HistoryPage';
 import FlightPlanner from '../../components/FlightPlanner/FlightPlanner';
+import Maps from '../../components/GoogleMaps/GoogleMaps'
 
 
 class App extends Component {
@@ -236,7 +237,9 @@ class App extends Component {
                             selectNightLanding={this.state.selectNightLanding}
                         />
                     }/>
-
+                    <Route exact path='/map' render={() => 
+                     <Maps />
+                    }/>
                 </Switch>
             </Router>
             </div>
