@@ -1,7 +1,8 @@
 const express = require('express');
 const path = require('path');
 const logger = require('morgan');
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
+const favicon = require('serve-favicon');
 const app = express();
 
 require('dotenv').config();
@@ -10,6 +11,7 @@ require('dotenv').config();
 // connect to MongoDB database;
 require('./config/database')
 
+app.use(favicon(path.join(__dirname, 'build')));
 app.use(express.static(path.join(__dirname, 'build')));
 app.use(bodyParser.json())
 app.use(logger('dev'));
