@@ -1,4 +1,4 @@
-const Flight = require('./../models/Flight');
+const Flight = require('./../models/flight');
 
 function allFlights(req, res) {
     Flight.find({})
