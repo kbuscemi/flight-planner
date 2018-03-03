@@ -13,9 +13,10 @@ const SideNavbar = (props) => {
                 options={{ closeOnClick: true }}
             >
             <SideNavItem href='/homepage' icon='keyboard_backspace'>Back</SideNavItem>
-            <SideNavItem href='/planner'>New Flight</SideNavItem>
+            <SideNavItem href='/planner' icon='create'>New Flight</SideNavItem>
             <SideNavItem href='/status' icon='schedule'>Flight Status</SideNavItem>
             <SideNavItem href='/map' icon='local_airport'>Google Maps</SideNavItem>
+            <SideNavItem divider></SideNavItem>
             <SideNavItem href='/' icon='not_interested' onClick={props.handleLogout}>Log Out</SideNavItem>
             </SideNav>
         </div>

@@ -1,7 +1,8 @@
-import React, { Component } from 'react'
-import {Link} from 'react-router-dom'
-import {SideNav} from 'react-materialize'
-import './GoogleMaps.css'
+import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
+import {SideNav} from 'react-materialize';
+import './GoogleMaps.css';
+
 
 let airports = [ 
 
@@ -65,7 +66,7 @@ let airports = [
 class Maps extends Component {
     constructor() {
       super();
-      this.setState = {
+      this.state = {
         airports: []
       }
     }
@@ -94,13 +95,12 @@ class Maps extends Component {
             var marker = new window.google.maps.Marker({
                 position: new window.google.maps.LatLng(airport.lat, airport.lng),
                 map: this.map,
-                title: airports.code
+                title: airport.code
 
             })
             window.google.maps.event.addListener(marker, 'mouseover', function() {
-              console.log(airports)
-                infowindow.setContent(airports.code)
-                infowindow.open(this.map, marker)
+              infowindow.setContent(airport.code)
+              infowindow.open(this.map, marker)
             })
         })
       }
@@ -108,9 +108,9 @@ class Maps extends Component {
         return (
             <div>
                 <div>
-                    <SideNav />
+                <Link to='/homepage'>Back</Link>
                 </div>
-                <div className='map' ref={map => this.mapDiv = map} airports={this.airports}></div>
+                <div className='map' ref={map => this.mapDiv = map} ></div>
             </div>
         );
     }
