@@ -1,12 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './FlightPlanner.css';
+import SideNav from './../SideNav/SideNav'
 import {Row, 
         Input,
         Modal,
         Autocomplete,
         Button
     } from 'react-materialize'
+
 
 const FlightPlanner = ({ addFlightPlan, aircraft, onChangeAircraft, tailNumber, onChangeTailNumber, coPilot, onChangeCoPilot, onChangeDeparture, departure, onChangeDestination, destination, onChangeDate, date, altitude, onChangeAltitude, onClickDayTakeoff, dayTakeoff, onClickDayLanding, dayLanding, onChangeTime, time, onClickNightTakeoff, nightTakeoff, onClickNightLanding, nightLanding}) => {
     let x;
@@ -15,11 +17,7 @@ const FlightPlanner = ({ addFlightPlan, aircraft, onChangeAircraft, tailNumber, 
     return (
         <div>
           <div>
-            <Link to='/homepage'>Back</Link>
-            &nbsp;&nbsp;|&nbsp;&nbsp;
-            <Link to='/history'>Flight History</Link>
-            &nbsp;&nbsp;|&nbsp;&nbsp;
-            <Link to='/map' className='NavBar-link'>Google Maps</Link>
+              <SideNav />
           </div>
             <h3>Flight Planner</h3>
             <form action="#" className='formContainer' ref={domNode => x = domNode}>
@@ -101,15 +99,15 @@ const FlightPlanner = ({ addFlightPlan, aircraft, onChangeAircraft, tailNumber, 
                             <Input s={6} label='Latitude' />
                         </Row>
                     </div> */}
-                </div>
                 <div> 
                     <Modal
                         header="Please Read"
-                        trigger={<Button onClick={() => console.log('yoi')}>Done</Button>}
-                    >
+                        trigger={<Button className='doneBtn' onClick={() => console.log('yoi')}>Done</Button>}
+                        >
                         <p> Please confirm that the information you entered is correct. Once you click 'Submit' you will not be able to make any changes to your flight plan.</p>
                         <Button type="submit" onClick={addFlightPlan}>Submit</Button>
                     </Modal>
+                </div>
                 </div>
             </form>
         </div>

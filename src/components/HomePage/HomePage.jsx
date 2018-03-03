@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import NavBar from '../NavBar/NavBar';
+import SideNav from './../SideNav/SideNav'
 
 const HomePage = (props) => {
     return (
@@ -10,7 +11,9 @@ const HomePage = (props) => {
                     user={props.user}
                     handleLogout={props.handleLogout}
                 />
+                <SideNav /> 
             </div>
+            <h3>Flights Submitted for Review</h3>
         </div>
     )
     

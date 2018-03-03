@@ -4,11 +4,9 @@
     margin: 0 0 20px;
   }
   
-  .NavBar-link {
-    margin: 0 10px;
-  }
-  
-  .NavBar-welcome {
-    color: grey;
-  }
-
+.welcome {
+  text-align: center;
+  margin-right: 40px;
+  font-size: 18px;
+  margin-top: 10px;
+}

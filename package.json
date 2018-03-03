@@ -9,7 +9,7 @@
     "express": "^4.16.2",
     "jsonwebtoken": "^8.1.1",
     "moment": "^2.20.1",
-    "mongoose": "^5.0.7",
+    "mongoose": "^5.0.8",
     "morgan": "^1.9.0",
     "prop-types": "^15.6.1",
     "react": "^16.2.0",
@@ -17,8 +17,10 @@
     "react-datepicker": "^1.2.1",
     "react-dom": "^16.2.0",
     "react-materialize": "^2.0.5",
+    "react-responsive-sidebar": "^0.1.16",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.1",
+    "react-sidebar": "^2.3.2",
     "serve-favicon": "^2.4.5"
   },
   "scripts": {
