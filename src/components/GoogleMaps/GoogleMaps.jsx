@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
+import {SideNav} from 'react-materialize'
 import './GoogleMaps.css'
 
 let airports = [ 
@@ -62,10 +63,24 @@ let airports = [
 
 
 class Maps extends Component {
+    constructor() {
+      super();
+      this.setState = {
+        airports: []
+      }
+    }
+
+    airportCode = () => {
+      this.setState({
+        airports: airports.code
+      })
+    }
+
     componentDidMount() {
         
-        var infowindow = new window.google.maps.InfoWindow();
-        var content = airports.code
+        var infowindow = new window.google.maps.InfoWindow({
+          content: airports.code
+        });
         
         
         var mapOptions = {
@@ -79,30 +94,23 @@ class Maps extends Component {
             var marker = new window.google.maps.Marker({
                 position: new window.google.maps.LatLng(airport.lat, airport.lng),
                 map: this.map,
-                title: airport.code
+                title: airports.code
+
             })
-            // console.log(airports)
             window.google.maps.event.addListener(marker, 'mouseover', function() {
-                infowindow.setContent(content)
+              console.log(airports)
+                infowindow.setContent(airports.code)
                 infowindow.open(this.map, marker)
             })
-
-            
-    })
-
-
-          // marker.setMap(this.map);
-    }
-    
+        })
+      }
     render() {
         return (
             <div>
                 <div>
-                    <Link to="/homepage">Back</Link>
-                    &nbsp;&nbsp;|&nbsp;&nbsp;
-                    <Link to="planner">Flight Planner</Link>
+                    <SideNav />
                 </div>
-                <div className='map' ref={map => this.mapDiv = map}></div>
+                <div className='map' ref={map => this.mapDiv = map} airports={this.airports}></div>
             </div>
         );
     }
