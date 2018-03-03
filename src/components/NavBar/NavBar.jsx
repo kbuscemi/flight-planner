@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import {Navbar} from 'react-materialize'
 import './NavBar.css';
 
 const NavBar = (props) => {
@@ -21,15 +22,14 @@ const NavBar = (props) => {
         </div>
         :
         <div>
-            <Link to='/login' className='NavBar-link'>Log In</Link>
-            &nbsp;&nbsp;|&nbsp;&nbsp;
-            <Link to='/signup' className='NavBar-link'> SIGN UP</Link>
+            <Link to='/login' className='navLinkOne'>Log In</Link>
+            <Link to='/signup' className='navLinkTwo'>Sign Up</Link>
         </div>
     
     return (
-        <div className='NavBar'>
+        <Navbar brand='Flight Tracker' right fixed className='trying-something'>
             {nav}
-        </div>
+        </Navbar>
     );
 };
 

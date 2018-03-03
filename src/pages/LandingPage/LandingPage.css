@@ -1,0 +1,42 @@
+.nav-wrapper {
+    background-color: #476F9D;
+}
+
+.brand-logo {
+    margin-left: 36px;
+    margin-top: 13px;
+}
+
+.landingNav {
+    margin: 0;
+    margin-top: 3px;
+    
+}
+
+.landingLinkOne, .landingLinkTwo {
+    font-size: 17px;
+    font-weight: 400;
+    margin-top: 8px;
+}
+
+.landingLinkOne {
+    margin-right: 18px;
+}
+
+.landingLinkTwo {
+    margin-right: 25px;
+}
+
+nav .nav-wrapper {
+    height: 130%;
+    
+}
+
+.flyingPic {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+
+

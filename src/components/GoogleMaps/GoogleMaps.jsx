@@ -5,7 +5,8 @@ import './GoogleMaps.css'
 let airports = [ 
 
     { lat: 40.6413111, //JFK
-      lng: -73.77813909999999
+      lng: -73.77813909999999,
+      code: 'JFK'
     },
 
     { lat: 28.4418, //MCO
@@ -62,26 +63,35 @@ let airports = [
 
 class Maps extends Component {
     componentDidMount() {
-
-        // var country = 'Spain';
-        // var airportApiUrl = 'http://maps.googleapis.com/maps/api/geocode/json?address=JFK&sensor=false';
-
+        
+        var infowindow = new window.google.maps.InfoWindow();
+        var content = airports.code
+        
+        
         var mapOptions = {
             zoom: 4,
             center: new window.google.maps.LatLng(37.168444, -34.048549)
         };
-
+        
         this.map = new window.google.maps.Map(this.mapDiv, mapOptions);
-
+        
         airports.forEach(airport => {
             var marker = new window.google.maps.Marker({
                 position: new window.google.maps.LatLng(airport.lat, airport.lng),
                 map: this.map,
-            });
-        });
+                title: airport.code
+            })
+            // console.log(airports)
+            window.google.maps.event.addListener(marker, 'mouseover', function() {
+                infowindow.setContent(content)
+                infowindow.open(this.map, marker)
+            })
+
+            
+    })
 
 
-        // marker.setMap(this.map);
+          // marker.setMap(this.map);
     }
     
     render() {
