@@ -19,7 +19,7 @@ const NavBar = (props) => {
         </div>
     
     return (
-        <Navbar brand='Flight Tracker' right fixed>
+        <Navbar href='/homepage' brand='Flight Tracker' right fixed>
             {nav}
         </Navbar>
     );

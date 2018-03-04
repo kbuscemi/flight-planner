@@ -33,6 +33,9 @@ class LoginForm extends Component {
     return (
       <div>
       <div className='loginBackground'>
+        <div>
+          <header className='login-header'>Log In Below</header>
+        </div>
         <form className='form-horizontal' onSubmit={this.handleSubmit} >
           <div className='form-group'>
             <div className='col-sm-12'>

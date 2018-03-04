@@ -8,7 +8,7 @@ import './SideNav.css'
 const SideNavbar = (props) => {
     return (
         <div className="menuBar">
-            <SideNav left
+            <SideNav
                 trigger={<Button className='menuBtn'>Menu</Button>}
                 options={{ closeOnClick: true }}
             >
@@ -17,6 +17,7 @@ const SideNavbar = (props) => {
             <SideNavItem href='/status' icon='schedule'>Flight Status</SideNavItem>
             <SideNavItem href='/map' icon='local_airport'>Google Maps</SideNavItem>
             <SideNavItem divider></SideNavItem>
+            <SideNavItem icon='account_circle'>My Account</SideNavItem>
             <SideNavItem href='/' icon='not_interested' onClick={props.handleLogout}>Log Out</SideNavItem>
             </SideNav>
         </div>

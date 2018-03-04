@@ -7,13 +7,9 @@ import './LandingPage.css'
 const LandingPage = (props) => {
     return (
         <div>
-            <Navbar brand='Flight Tracker' right className='trying-something'>
-                    <NavItem className='landingNav'>
-                        <Link to='/login' className='landingLinkOne'>Log In</Link>
-                    </NavItem>
-                    <NavItem className='landingNav'>
-                        <Link to='/signup' className='landingLinkTwo'>Sign Up</Link>
-                    </NavItem>
+            <Navbar href='/' brand='Flight Tracker' right>
+                <NavItem href='/login' className='landingLinkOne'>Log In</NavItem>
+                <NavItem href='/signup' className='landingLinkTwo'>Sign Up</NavItem>
             </Navbar>
             <div>
                <img src="https://i.imgur.com/n9Nklr3.jpg" title="flying" className='flyingPic' />

@@ -18,7 +18,7 @@ class App extends Component {
     constructor() {
         super();
         this.state = {
-            flights: [],
+            // flights: [],
             selectAircraft: 'SLG2',
             selectTailNumber: 'N166TW (SLG2)',
             selectDeparture: '',
@@ -140,17 +140,7 @@ class App extends Component {
         })
     }
 
-    componentDidMount() {
-        let user = userService.getUser();
-        this.setState({user});
-
-        fetch("api/flights")
-            .then(res => res.json())
-            .then(flights => this.setState({flights}))
-            .catch(err => console.log(err))
-
-    }
-
+    
     addFlightPlan = (e) => {
         e.preventDefault();
         fetch("api/flights", {
@@ -173,11 +163,28 @@ class App extends Component {
                 nightLanding: this.state.selectNightLanding
             })       
         })
-        .then(() => console.log('yay'))
+        
+        .then(data => data.json())
+        .then((flight) => {
+            // this.setState({
+            //     flight: flight
+            // })
+            console.log('yay')
+        })
         .catch(err => console.log(err))
     }
+    
+    componentDidMount() {
+        let user = userService.getUser();
+        this.setState({user});
 
+        fetch("api/flights")
+            .then(res => res.json())
+            .then(flights => this.setState({flights}))
+            .catch(err => console.log(err))
 
+    }
+    
     render() {
         return (
             <div>
@@ -209,7 +216,7 @@ class App extends Component {
                     }/>
                     <Route exact path='/planner' render={() =>
                         <FlightPlanner
-                            // flights={this.state.flights}
+                            // flight={this.state.flight}
                             addFlightPlan={this.addFlightPlan}
                             onChangeAircraft={this.onChangeAircraft}
                             selectAircraft={this.state.selectAircraft}

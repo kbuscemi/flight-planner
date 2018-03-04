@@ -44,7 +44,9 @@ class SignupForm extends Component {
     return (
       <div>
         <div className='signUpBackground'>
-        <header className="header-footer">Sign Up</header>
+        <div>
+            <header className="header-footer">Sign Up Below</header>
+        </div>
         <form className="form-horizontal" onSubmit={this.handleSubmit} >
           <div className="form-group">
             <div className="col-sm-12">
@@ -68,7 +70,7 @@ class SignupForm extends Component {
           </div>
           <div className="form-group">
             <div className="col-sm-12">
-              <input type="password" className="form-control" placeholder="Password Confirmation" value={this.state.passwordConf} onChange={(e) => this.handleChange('passwordConf', e)} />
+              <input type="password" className="form-control" placeholder="Confirm Password" value={this.state.passwordConf} onChange={(e) => this.handleChange('passwordConf', e)} />
             </div>
           </div>
           <div className="form-group">

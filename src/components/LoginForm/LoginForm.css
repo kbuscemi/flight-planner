@@ -6,9 +6,15 @@
 
 .loginBackground {
     background-color: white;
-    padding: 60px;
+    padding: 40px 60px 60px 60px;
     margin-bottom: 80px;
+    font-size: 16px;
     
+}
+
+.login-header {
+    text-align: center;
+    margin: 0 9px 13px 0
 }
 
 .btn, .btn-default {

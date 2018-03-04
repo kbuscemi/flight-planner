@@ -7,12 +7,12 @@ const HomePage = (props) => {
     return (
         <div>
             <div>
-                <NavBar 
-                    user={props.user}
-                    handleLogout={props.handleLogout}
+                <NavBar
+                user={props.user}
                 />
-                <SideNav /> 
+                <SideNav />
             </div>
+
             <h3>Flights Submitted for Review</h3>
         </div>
     )

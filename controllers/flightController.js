@@ -1,4 +1,5 @@
 const Flight = require('../models/flight');
+const User = require('../models/user')
 
 function allFlights(req, res) {
     Flight.find({})
@@ -6,16 +7,6 @@ function allFlights(req, res) {
         .catch(err => console.log(err));
 
 }
-
-// function createFlight(req, res) {
-//     let flightPlan = new Flight;
-//         flightPlan.id = req.body.id
-//         flightPlan.flights.push(req.body.id)
-//         flightPlan.save((err) => {
-//         if (err) console.log(err);
-//         console.log(flightPlan)
-//         res.json('this worked').status(200);
-//     })
 
 function createFlight(req, res) {
     let flightPlan = new Flight;
@@ -42,9 +33,20 @@ function createFlight(req, res) {
 
 }
 
+function showFlight(req, res) { 
+    Flight.findOne({})
+        .populate('users')
+        .exec(function(err, flights) {
+            if (err) console.log(err);
+            console.log(flights)
+            res.json(flights).status(200)
+    })
+
+}
 
 module.exports = {
     allFlights,
-    createFlight
+    createFlight,
+    showFlight
 }
 

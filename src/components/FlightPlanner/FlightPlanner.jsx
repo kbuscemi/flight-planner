@@ -93,8 +93,8 @@ const FlightPlanner = ({ addFlightPlan, aircraft, onChangeAircraft, tailNumber, 
                         <Row>
                             <Input s={6} label='Longitude' />
                         </Row>
-                    </div> */}
-                    {/* <div>
+                    </div>
+                    <div>
                         <Row>
                             <Input s={6} label='Latitude' />
                         </Row>

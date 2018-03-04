@@ -6,7 +6,7 @@
 
 .signUpBackground {
     background-color: white;
-    padding: 80px;
+    padding: 30px 80px 50px 80px;
     margin-bottom: 10px;
     
 }
@@ -15,9 +15,11 @@
     background-color: #476F9D;
 }
 
-/* input .form-control {
-    width: 15vw;
-} */
+.header-footer {
+    margin: 0 15px 15px 0;
+    text-align: center;
+    font-size: 18px;
+}
 
 .btn, .btn-default, .signUpBtn {
     background-color: #476F9D;
