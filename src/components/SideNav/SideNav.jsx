@@ -14,7 +14,6 @@ const SideNavbar = (props) => {
             >
             <SideNavItem href='/homepage' icon='keyboard_backspace'>Back</SideNavItem>
             <SideNavItem href='/planner' icon='create'>New Flight</SideNavItem>
-            <SideNavItem href='/status' icon='schedule'>Flight Status</SideNavItem>
             <SideNavItem href='/map' icon='local_airport'>Google Maps</SideNavItem>
             <SideNavItem divider></SideNavItem>
             <SideNavItem icon='account_circle'>My Account</SideNavItem>

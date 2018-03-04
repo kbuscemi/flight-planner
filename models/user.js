@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema
 const bcrypt = require('bcrypt');
 
 const SALT_ROUNDS = 6
@@ -9,7 +10,7 @@ const userSchema = new mongoose.Schema ({
     email: {type: String, required: true, lowercase: true, unique: true},
     password: String,
     licenses: String,
-    flights: [{type: mongoose.Schema.Types.ObjectId, ref: 'Flight'}],
+    flights: [{ type: Schema.Types.ObjectId, ref: 'Flight' }],
     dob: Number,
     gender: String,
 

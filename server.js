@@ -20,6 +20,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // put API routes here, before the 'catch all' route
 app.use('/api/users', require('./routes/api/users'));
 app.use('/api/flights', require('./routes/api/flights'));
+app.use('/api/airports', require('./routes/api/airports'));
 // Catch-all route for SPA. necessary for a SPA's client-side routing to properly work
 // ('/*') is a wild card and will match anything/everything
 app.get('/*', function(req, res) {

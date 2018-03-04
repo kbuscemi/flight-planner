@@ -8,7 +8,7 @@ var flightSchema = new mongoose.Schema ({
     },
     tailNumber: {
         type: String, 
-        enum: ["N166TW", "N238AT", "N997RA"],
+        enum: ["N166TW-SLG2", "N238AT-Seminole", "N997RA-Skyhawk"],
         required: true
     },
     departure: String,
@@ -16,18 +16,11 @@ var flightSchema = new mongoose.Schema ({
     altitude: Number,
     date: String,
     time: Number,
-    // from: Number,
-    // to: Number,
     dayTakeoff: {type: Boolean, default: false},
     dayLanding: {type: Boolean, default: false},
     nightTakeoff: {type: Boolean, default: false},
     nightLanding: {type: Boolean, default: false},
     coPilot: String,
-    route: Number,
-
-
-
-    
 })
 
 module.exports = mongoose.model('Flight', flightSchema);

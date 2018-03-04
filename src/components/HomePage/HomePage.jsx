@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import NavBar from '../NavBar/NavBar';
 import SideNav from './../SideNav/SideNav'
 
-const HomePage = (props) => {
+const HomePage = (props, flight) => {
     return (
         <div>
             <div>

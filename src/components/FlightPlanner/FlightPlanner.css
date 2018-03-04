@@ -9,7 +9,15 @@
 .column {
     width: 40%;
     padding: 0 50px 0 50px;
+}
 
+.mapIcon {
+    margin-bottom: 22px;
+    color: black;
+}
+
+.mapIcon:hover {
+    color: gray;;
 }
 
 h3 {
@@ -17,6 +25,12 @@ h3 {
 }
 
 .doneBtn {
+    background-color: #476F9D;
+}
+
+button.btn.waves-effect.waves-light.btn-flat.modal-action.modal-close {
+    color: white;
     background-color: gray;
 }
+
 

@@ -12,14 +12,12 @@ import {Row,
 
 const FlightPlanner = ({ addFlightPlan, aircraft, onChangeAircraft, tailNumber, onChangeTailNumber, coPilot, onChangeCoPilot, onChangeDeparture, departure, onChangeDestination, destination, onChangeDate, date, altitude, onChangeAltitude, onClickDayTakeoff, dayTakeoff, onClickDayLanding, dayLanding, onChangeTime, time, onClickNightTakeoff, nightTakeoff, onClickNightLanding, nightLanding}) => {
     let x;
-
-    console.log(x)
     return (
         <div>
           <div>
               <SideNav />
           </div>
-            <h3>Flight Planner</h3>
+            <h3>Flight Plan</h3>
             <form action="#" className='formContainer' ref={domNode => x = domNode}>
                 <div className='column'>
                     <div>
@@ -34,9 +32,9 @@ const FlightPlanner = ({ addFlightPlan, aircraft, onChangeAircraft, tailNumber, 
                     <div>
                         <Row>
                             <Input s={6} value={tailNumber} onChange={onChangeTailNumber} type='select' label='Select TailNumber' defaultValue='2'>
-                                <option value='N166TW'>N166TW (SLG2)</option>
-                                <option value='N238AT'>N238AT (Seminole)</option>
-                                <option value='N997RA'>N997RA (Skyhawk)</option>
+                                <option value='N166TW-SLG2'>N166TW (SLG2)</option>
+                                <option value='N238AT-Seminole'>N238AT (Seminole)</option>
+                                <option value='N997RA-Skyhawk'>N997RA (Skyhawk)</option>
                             </Input>
                         </Row>
                     </div>
@@ -58,6 +56,9 @@ const FlightPlanner = ({ addFlightPlan, aircraft, onChangeAircraft, tailNumber, 
                 </div>
                 <div className='column'>
                     <div>
+                        <Link to='/map'><p className='mapIcon'><i className='material-icons'>local_airport</i>Map your Route</p></Link>
+                    </div>
+                    <div>
                         <Row>
                             <Input value={date} label='Date of Flight' className='datepicker' type='date' onChange={onChangeDate} />
                         </Row>
@@ -67,11 +68,6 @@ const FlightPlanner = ({ addFlightPlan, aircraft, onChangeAircraft, tailNumber, 
                             <Input s={6} value={altitude} onChange={onChangeAltitude} label='Cruise Altitude' />
                         </Row>
                     </div>
-                    {/* <div>
-                        <Row>
-                            <Input s={6} label='Route' />
-                        </Row>
-                    </div> */}
                     <div>
                         <Row>
                             <Input s={6} value={time} onChange={onChangeTime} label='Total Time (hrs)' />
@@ -89,25 +85,15 @@ const FlightPlanner = ({ addFlightPlan, aircraft, onChangeAircraft, tailNumber, 
                             <Input name='group2' type='checkbox' checked={nightLanding} onClick={onClickNightLanding} label='Night Landing' />
                         </Row>
                     </div>
-                    {/* <div>
-                        <Row>
-                            <Input s={6} label='Longitude' />
-                        </Row>
-                    </div>
-                    <div>
-                        <Row>
-                            <Input s={6} label='Latitude' />
-                        </Row>
-                    </div> */}
-                <div> 
+                    <div> 
                     <Modal
-                        header="Please Read"
+                        header="Important"
                         trigger={<Button className='doneBtn' onClick={() => console.log('yoi')}>Done</Button>}
                         >
                         <p> Please confirm that the information you entered is correct. Once you click 'Submit' you will not be able to make any changes to your flight plan.</p>
                         <Button type="submit" onClick={addFlightPlan}>Submit</Button>
                     </Modal>
-                </div>
+                    </div>
                 </div>
             </form>
         </div>

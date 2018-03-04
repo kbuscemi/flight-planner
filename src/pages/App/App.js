@@ -11,16 +11,17 @@ import HomePage from '../../components/HomePage/HomePage';
 import LandingPage from '../LandingPage/LandingPage';
 import History from '../../components/HistoryPage/HistoryPage';
 import FlightPlanner from '../../components/FlightPlanner/FlightPlanner';
-import GoogleMaps from '../../components/GoogleMaps/GoogleMaps'
+// import Maps from '../../components/GoogleMaps/GoogleMaps'
 
 
 class App extends Component {
     constructor() {
         super();
         this.state = {
-            // flights: [],
+            // airports: [],
+            flight: [],
             selectAircraft: 'SLG2',
-            selectTailNumber: 'N166TW (SLG2)',
+            selectTailNumber: 'N166TW-SLG2',
             selectDeparture: '',
             selectDestination: '',
             selectDate: null,
@@ -31,7 +32,6 @@ class App extends Component {
             selectNightTakeoff: false,
             selectNightLanding: false,
             coPilotName: '',
-            // route: 0
         }
     }
 
@@ -166,9 +166,9 @@ class App extends Component {
         
         .then(data => data.json())
         .then((flight) => {
-            // this.setState({
-            //     flight: flight
-            // })
+            this.setState({
+                flight: flight
+            })
             console.log('yay')
         })
         .catch(err => console.log(err))
@@ -180,7 +180,12 @@ class App extends Component {
 
         fetch("api/flights")
             .then(res => res.json())
-            .then(flights => this.setState({flights}))
+            .then(flight => this.setState({flight}))
+            .catch(err => console.log(err))
+
+        fetch("api/airports")
+            .then(res => res.json())
+            .then(airports => this.setState({ airports }))
             .catch(err => console.log(err))
 
     }
@@ -197,6 +202,7 @@ class App extends Component {
                     <HomePage
                         user={this.state.user}
                         handleLogout={this.handleLogout}
+                        flight={this.state.flight}
                     />
                     }/>
                     <Route exact path='/signup' render={(props) =>
@@ -216,7 +222,6 @@ class App extends Component {
                     }/>
                     <Route exact path='/planner' render={() =>
                         <FlightPlanner
-                            // flight={this.state.flight}
                             addFlightPlan={this.addFlightPlan}
                             onChangeAircraft={this.onChangeAircraft}
                             selectAircraft={this.state.selectAircraft}
@@ -244,9 +249,11 @@ class App extends Component {
                             selectNightLanding={this.state.selectNightLanding}
                         />
                     }/>
-                    <Route exact path='/map' render={() => 
-                     <GoogleMaps />
-                    }/>
+                    {/* <Route exact path='/map' render={() => 
+                   <Maps 
+                        airports={this.state.airports}
+                    />  
+                    }/> */}
                 </Switch>
             </Router>
             </div>

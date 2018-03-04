@@ -1,11 +1,13 @@
 button.btn.menuBtn {
-    background-color: gray;
+    background-color: white;
+    color: black;
+
     
 }
 
 .menuBar {
     margin: 0;
     display: flex;
-    justify-content: flex-end;
-    margin-top: 26px;
+    justify-content: flex-start;
+    margin: 24px 0 0 10px;
 }
