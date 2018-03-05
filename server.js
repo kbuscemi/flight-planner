@@ -16,6 +16,7 @@ app.use(express.static(path.join(__dirname, 'build')));
 app.use(bodyParser.json())
 app.use(logger('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(require('./config/auth'));
 
 // put API routes here, before the 'catch all' route
 app.use('/api/users', require('./routes/api/users'));

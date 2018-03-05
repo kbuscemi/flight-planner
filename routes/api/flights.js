@@ -5,6 +5,10 @@ const flightCtrl = require('../../controllers/flightController');
 
 router.get('/', flightCtrl.allFlights);
 router.post('/', flightCtrl.createFlight);
-// router.get('/', flightCtrl.addFlightPlan)
 
 module.exports = router;
+
+function checkAuth(req, res, next) {
+    if (req.user) return next();
+    return res.status(401).json({msg: 'not authenticated'});
+  }

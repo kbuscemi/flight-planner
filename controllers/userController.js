@@ -36,11 +36,17 @@ function login(req, res) {
     }).catch(err => res.status(401).json(err));
 }
 
-
-
+function getFlights(req, res) {
+    User.findById(req.user._id)
+    .populate('flights').exec()
+    .then(function(user) {
+        res.json(user.flights);
+    });
+}
 
 
 module.exports = {
     signup,
     login,
+    getFlights
 };

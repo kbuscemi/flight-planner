@@ -1,3 +1,4 @@
+import tokenService from './tokenService';
 const BASE_URL = '/api/users/';
 
 function signup(user) {
@@ -28,7 +29,24 @@ function login(creds) {
   .then(({token}) => token);
 }
 
+function getFlights() {
+  return fetch(BASE_URL + 'flights' , {
+    headers: new Headers({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${tokenService.getToken()}`
+    })
+  })
+  .then(res => {
+    //valid login if we have a status of res.ok
+    if (res.ok) return res.json();
+    throw new Error('Bad credentials');
+  })
+  .then((flights) => flights);
+}
+
+
 export default {
   signup,
-  login
+  login,
+  getFlights
 };
