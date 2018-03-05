@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './FlightPlanner.css';
+// import DatePicker from './../DatePicker/DatePicker'
 import SideNav from './../SideNav/SideNav'
 import {Row, 
         Input,
@@ -10,7 +11,7 @@ import {Row,
     } from 'react-materialize'
 
 
-const FlightPlanner = ({ addFlightPlan, aircraft, onChangeAircraft, tailNumber, onChangeTailNumber, coPilot, onChangeCoPilot, onChangeDeparture, departure, onChangeDestination, destination, onChangeDate, date, altitude, onChangeAltitude, onClickDayTakeoff, dayTakeoff, onClickDayLanding, dayLanding, onChangeTime, time, onClickNightTakeoff, nightTakeoff, onClickNightLanding, nightLanding}) => {
+const FlightPlanner = ({ addFlightPlan, date, onChangeDate, aircraft, onChangeAircraft, tailNumber, onChangeTailNumber, coPilot, onChangeCoPilot, onChangeDeparture, departure, onChangeDestination, destination, altitude, onChangeAltitude, onClickDayTakeoff, dayTakeoff, onClickDayLanding, dayLanding, onChangeTime, time, onClickNightTakeoff, nightTakeoff, onClickNightLanding, nightLanding}) => {
     let x;
     return (
         <div>
@@ -59,6 +60,7 @@ const FlightPlanner = ({ addFlightPlan, aircraft, onChangeAircraft, tailNumber, 
                         <Link to='/map'><p className='mapIcon'><i className='material-icons'>local_airport</i>Map your Route</p></Link>
                     </div>
                     <div>
+                        {/* <DatePicker /> */}
                         <Row>
                             <Input value={date} label='Date of Flight' className='datepicker' type='date' onChange={onChangeDate} />
                         </Row>

@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import NavBar from '../NavBar/NavBar';
 import SideNav from './../SideNav/SideNav'
 
-const HomePage = (props, flight) => {
+const HomePage = (props) => {
     return (
         <div>
             <div>
@@ -14,6 +14,7 @@ const HomePage = (props, flight) => {
             </div>
 
             <h3>Flights Submitted for Review</h3>
+            {/* <p>{flight.date}</p> */}
         </div>
     )
     

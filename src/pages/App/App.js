@@ -9,17 +9,16 @@ import LoginPage from '../LoginPage/LoginPage';
 import userService from '../../utils/userService';
 import HomePage from '../../components/HomePage/HomePage';
 import LandingPage from '../LandingPage/LandingPage';
-import History from '../../components/HistoryPage/HistoryPage';
 import FlightPlanner from '../../components/FlightPlanner/FlightPlanner';
-// import Maps from '../../components/GoogleMaps/GoogleMaps'
+import Maps from '../../components/Maps/Maps'
 
 
 class App extends Component {
     constructor() {
         super();
         this.state = {
-            // airports: [],
-            flight: [],
+            airports: [],
+            // flight: [],
             selectAircraft: 'SLG2',
             selectTailNumber: 'N166TW-SLG2',
             selectDeparture: '',
@@ -169,7 +168,7 @@ class App extends Component {
             this.setState({
                 flight: flight
             })
-            console.log('yay')
+            console.log('flight')
         })
         .catch(err => console.log(err))
     }
@@ -180,7 +179,7 @@ class App extends Component {
 
         fetch("api/flights")
             .then(res => res.json())
-            .then(flight => this.setState({flight}))
+            .then(flight => this.setState({ flight }))
             .catch(err => console.log(err))
 
         fetch("api/airports")
@@ -202,7 +201,7 @@ class App extends Component {
                     <HomePage
                         user={this.state.user}
                         handleLogout={this.handleLogout}
-                        flight={this.state.flight}
+                        // flight={this.state.flight}
                     />
                     }/>
                     <Route exact path='/signup' render={(props) =>
@@ -216,9 +215,6 @@ class App extends Component {
                             {...props}
                             handleLogin={this.handleLogin}
                         />
-                    }/>
-                    <Route exact path='/history' render={() =>
-                        <History />
                     }/>
                     <Route exact path='/planner' render={() =>
                         <FlightPlanner
@@ -249,11 +245,11 @@ class App extends Component {
                             selectNightLanding={this.state.selectNightLanding}
                         />
                     }/>
-                    {/* <Route exact path='/map' render={() => 
+                    <Route exact path='/map' render={() => 
                    <Maps 
                         airports={this.state.airports}
                     />  
-                    }/> */}
+                    }/>
                 </Switch>
             </Router>
             </div>

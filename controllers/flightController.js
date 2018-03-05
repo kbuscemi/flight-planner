@@ -10,8 +10,9 @@ function allFlights(req, res) {
 
 function createFlight(req, res) {
     let flightPlan = new Flight;
-    // flightPlan.users.push(req.body.id)
+
     flightPlan.id = req.body.id
+
     flightPlan.date = req.body.date
     flightPlan.aircraft = req.body.aircraft
     flightPlan.tailNumber = req.body.tailNumber
@@ -29,25 +30,25 @@ function createFlight(req, res) {
     flightPlan.save((err) => {
         if (err) console.log(err)
         console.log(flightPlan)
-        res.json('this worked').status(200);
+        res.json('flight').status(200);
+        // Flight.find({})
+        // .then(flights => res.json(flights).status(200))
     })
-
 }
 
-function showFlight(req, res) { 
-    Flight.findOne({})
-        .then(function(flight) {
-            flights.user.push(req.body.id)
-            console.log('yes')
-            flight.save(function(err) {
-                res.json(flight)
-            })
-        })
-    }
+    // function addFlightPlan(req, res) {
+    //     Flight.findOne({})
+    //         .then(function(flight) {
+    //             flights.user.push(req.body.id)
+    //             flight.save(function(err) {
+    //                 res.json(flight);
+    //             })
+    //         })
+    // }
 
 module.exports = {
     allFlights,
     createFlight,
-    showFlight
+    // addFlightPlan
 }
 

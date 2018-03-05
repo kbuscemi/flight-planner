@@ -3,9 +3,7 @@ const Airport = require('./models/airport')
 require('dotenv').config();
 require('./config/database');
 
-Airport.remove({})
-.then(function() {
-    return Airport.create([
+  let airports = [
 
         {   lat: 40.6413111, //JFK
             lng: -73.77813909999999,
@@ -72,9 +70,4 @@ Airport.remove({})
             lng: -118.391,
             code: 'LAX (lat: 33.94 lng: -118.39)'
           },
-    ])
-})
-.then(function(airports) {
-    console.log(airports);
-    process.exit();
-})
+    ]

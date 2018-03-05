@@ -5,6 +5,6 @@ const flightCtrl = require('../../controllers/flightController');
 
 router.get('/', flightCtrl.allFlights);
 router.post('/', flightCtrl.createFlight);
-router.get('/', flightCtrl.showFlight);
+// router.get('/', flightCtrl.addFlightPlan)
 
 module.exports = router;
