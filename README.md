@@ -2,7 +2,7 @@
 
 The idea to build Flight Tracker came to me during a conversation I was havig one day with my brother. My brother was explaining to me how he has on average 5 flights a day, every day through April and that he was not only having difficulties keeping track of every flight but there was no simple way to submit his flight plans to be reviewed before takeoff. And that's when the idea came to me. I wanted to build an app where pilots can submit their upcoming flights to be reviewed. I wanted the application to be very detailed yet simple for pilots to be able to submit all the information needed for their flight plan to be granted clearance. With that in mind, Flight Tracker came to life.
 
-![UI Screenshot](https://imgur.com/umi84B3)
+<a href="https://imgur.com/umi84B3"><img src="https://i.imgur.com/umi84B3.png" title="source: imgur.com" /></a>
 
 
 ## Built With:
@@ -21,9 +21,9 @@ The idea to build Flight Tracker came to me during a conversation I was havig on
 
 ## Getting Started
 
-The beginning stages of building Flight Tracker began with creating user stories and wireframes. This was an extremely useful tool that I continuously referenced throughout the process. Feel free to **[take a look](https://trello.com/b/1HcjNsOO/fight-planner)!
+The beginning stages of building Flight Tracker began with creating user stories and wireframes. This was an extremely useful tool that I continuously referenced throughout the process. Feel free to [take a look](https://trello.com/b/1HcjNsOO/fight-planner)!
 
-Once you've taken a look at the wireframes I encourage you to **[visit](https://flight-planner.herokuapp.com/) the finished application and see how I brought the idea to life!
+Once you've taken a look at the wireframes I encourage you to [visit](https://flight-planner.herokuapp.com/) the finished application and see how I brought the idea to life!
 
 ## Unresolved Issues
 
