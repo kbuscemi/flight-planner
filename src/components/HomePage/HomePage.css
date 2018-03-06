@@ -1,0 +1,29 @@
+div.cardDeck.card {
+    width: 36%;
+    margin-top: 44px;
+    margin-right: 0;
+    width: 36%;
+    margin: 0;
+    padding: 30px;
+    box-shadow: 8px 9px 17px
+
+}
+
+div.cardContainer{
+    display: flex;
+    flex-direction: row;
+    margin-top: 60px;
+    margin-left: 100px;
+}
+
+span.card-title.grey-text.text-darken-4.activator{
+    text-align: center;
+}
+
+.pageHeader {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 500;
+
+}
+
