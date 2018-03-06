@@ -1,5 +1,4 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 import {Card, CardTitle} from 'react-materialize'
 import SideNavBar from '../../components/SideNavBar/SideNavBar'
 import './HomePage.css'
@@ -7,12 +6,12 @@ import './HomePage.css'
 const HomePage = (props) => {
     const flightCard = props.flights.map((flight) => (
         <div className='cardContainer'>
-            <Card m={4} className='cardDeck' key={flight._id} header={<CardTitle waves='light'/>}
+            <Card m={4} className='cardDeck' key={flight._id} header={<CardTitle image='' waves='light'/>}
             title="Upcoming Flight"
-            reveal={<p>You have chosen to fly {flight.aircraft} (Tail-Number: {flight.tailNumber}) on {flight.date}. Total flight time is {flight.time}
-                    with a cruise altitude of {flight.altitude}. Departure airport is {flight.departure}. Destination airport
-                    is {flight.destination}. Your co-pilot is {flight.coPilot}. Day Takeoff: {flight.dayTakeoff}, Day Landing: {flight.dayLanding}, 
-                    Night Takeoff: {flight.nightTakeoff}, Night Landing: {flight.nightLanding}.
+            reveal={<p>You have selected to fly aircraft {flight.aircraft} on {flight.date}. Your co-pilot will be {flight.coPilot}. <br/> Total flight time is {flight.time} hrs
+                     with a cruise altitude of {flight.altitude}. <br/> Tail-Number: {flight.tailNumber} <br/>Departure airport:&nbsp;{flight.departure} <br/> Destination airport: 
+                    &nbsp;{flight.destination} <br/> Day Takeoff:&nbsp;{flight.dayTakeoff === false ? 'No' : 'Yes'} <br/> Day Landing:&nbsp;{flight.dayLanding === false ? 'No' : 'Yes'} 
+                    <br/> Night Takeoff:&nbsp;{flight.nightTakeoff === false ? 'No' : 'Yes'} <br/> Night Landing:&nbsp;{flight.nightLanding === false ? 'No' : 'Yes'}
                     </p>}>
             </Card>
         </div>
@@ -21,8 +20,10 @@ const HomePage = (props) => {
     return (
         <div>
             <SideNavBar handleLogout={props.handleLogout} user={props.user}/>
-            <div>
-                    <header className='pageHeader'> Flight Plans Under Review</header>
+                <div className='header'>
+                    <header className='pageHeader'>Flights Under Review</header>
+                </div>
+            <div className='flightCardDiv'>
                 {flightCard}
             </div>
         </div>

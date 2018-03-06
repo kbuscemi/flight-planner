@@ -5,7 +5,6 @@ import SideNavBar from '../../components/SideNavBar/SideNavBar'
 import {Row, 
         Input,
         Modal,
-        Autocomplete,
         Button
     } from 'react-materialize'
 

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
-import {SideNav} from 'react-materialize';
 import './Maps.css';
 
 class Maps extends Component {

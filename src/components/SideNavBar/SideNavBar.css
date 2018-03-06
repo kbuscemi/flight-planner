@@ -1,8 +1,6 @@
 button.btn.menuBtn {
-    background-color: white;
+    background-color: #C8D5E1;
     color: black;
-
-    
 }
 
 .menuBar {
@@ -10,4 +8,8 @@ button.btn.menuBtn {
     display: flex;
     justify-content: flex-start;
     margin: 24px 0 0 10px;
+}
+
+.side-nav a {
+    font-size: 20px;
 }

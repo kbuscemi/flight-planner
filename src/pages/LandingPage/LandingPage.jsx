@@ -1,5 +1,4 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 import {Navbar, NavItem} from 'react-materialize';
 import './LandingPage.css'
 
@@ -11,7 +10,7 @@ const LandingPage = (props) => {
                 <NavItem href='/signup' className='landingLinkTwo'>Sign Up</NavItem>
             </Navbar>
             <div>
-               <img src="https://i.imgur.com/n9Nklr3.jpg" title="flying" className='flyingPic' />
+               <img src="https://i.imgur.com/n9Nklr3.jpg" alt='flying' title="flying" className='flyingPic' />
             </div>
         </div>
     )

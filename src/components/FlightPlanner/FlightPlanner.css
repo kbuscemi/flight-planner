@@ -17,7 +17,7 @@
 }
 
 .mapIcon:hover {
-    color: gray;;
+    color: #476F9D;
 }
 
 h3 {
@@ -33,4 +33,19 @@ button.btn.waves-effect.waves-light.btn-flat.modal-action.modal-close {
     background-color: gray;
 }
 
+html {
+    background-color: #C8D5E1;
+    font-family: 'EB Garamond', serif;
+}
 
+.input-field.col label { 
+    color: black;
+}
+
+label {
+    color: black;
+}
+
+.dropdown-content li>a, .dropdown-content li>span {
+    color: #476F9D;
+}
