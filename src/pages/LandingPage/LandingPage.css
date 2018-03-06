@@ -32,5 +32,9 @@ nav .nav-wrapper {
     background-position: center center;
 }
 
+nav ul a {
+    font-size: 18px;
+}
+
 
 

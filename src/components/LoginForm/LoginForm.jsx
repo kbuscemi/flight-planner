@@ -31,29 +31,29 @@ class LoginForm extends Component {
   render() {
     return (
       <div>
-      <div className='loginBackground'>
-        <div>
-          <header className='login-header'>Log In Below</header>
+        <div className='loginBackground'>
+          <div>
+            <header className='login-header'>Log In Below</header>
+          </div>
+          <form className='form-horizontal' onSubmit={this.handleSubmit} >
+            <div className='form-group'>
+              <div className='col-sm-12'>
+                <input type='email' className='form-control' placeholder='Email' value={this.state.email} onChange={(e) => this.handleChange('email', e)} />
+              </div>
+            </div>
+            <div className='form-group'>
+              <div className='col-sm-12'>
+                <input type='password' className='form-control' placeholder='Password' value={this.state.pw} onChange={(e) => this.handleChange('pw', e)} />
+              </div>
+            </div>
+            <div className='form-group'>
+              <div className='col-sm-12 text-center'>
+                <button className='btn btn-default logInBtn'>Log In</button>&nbsp;&nbsp;&nbsp;
+                  <Link to='/' className='cancelBtn'>Cancel</Link>
+              </div>
+            </div>
+          </form>
         </div>
-        <form className='form-horizontal' onSubmit={this.handleSubmit} >
-          <div className='form-group'>
-            <div className='col-sm-12'>
-              <input type='email' className='form-control' placeholder='Email' value={this.state.email} onChange={(e) => this.handleChange('email', e)} />
-            </div>
-          </div>
-          <div className='form-group'>
-            <div className='col-sm-12'>
-              <input type='password' className='form-control' placeholder='Password' value={this.state.pw} onChange={(e) => this.handleChange('pw', e)} />
-            </div>
-          </div>
-          <div className='form-group'>
-            <div className='col-sm-12 text-center'>
-              <button className='btn btn-default logInBtn'>Log In</button>&nbsp;&nbsp;&nbsp;
-              <Link to='/' className='cancelBtn'>Cancel</Link>
-            </div>
-          </div>
-        </form>
-      </div>
     </div>
     );
   }

@@ -26,7 +26,6 @@ class FlightPlanner  extends Component {
             nightLanding: false,
             coPilot: '',
         };
-
     }
 
     updateField = (field, e) => {
@@ -35,57 +34,56 @@ class FlightPlanner  extends Component {
         });
     }
 
-
     onClickDayTakeoff = () => {
         this.setState({
             dayTakeoff: !this.state.dayTakeoff}, () => {
-        if (this.state.dayTakeoff === false) {
-            console.log('false')
-        } else if (this.state.dayTakeoff === true) {
-            console.log('true')
-          }
+            if (this.state.dayTakeoff === false) {
+                console.log('false')
+            } else if (this.state.dayTakeoff === true) {
+                console.log('true')
+            }
         })
     }
 
     onClickDayLanding = () => {
         this.setState({
             dayLanding: !this.state.dayLanding}, () => {
-        if (this.state.dayLanding === false) {
-            console.log('false')
-        } else if (this.state.dayLanding === true) {
-            console.log('true')
-          }
+            if (this.state.dayLanding === false) {
+                console.log('false')
+            } else if (this.state.dayLanding === true) {
+                console.log('true')
+            }
         })
     }
 
     onClickNightTakeoff = () => {
         this.setState({
             nightTakeoff: !this.state.nightTakeoff}, () => {
-        if (this.state.nightTakeoff === false) {
-            console.log('false')
-        } else if (this.state.nightTakeoff === true) {
-            console.log('true')
-          }
+            if (this.state.nightTakeoff === false) {
+                console.log('false')
+            } else if (this.state.nightTakeoff === true) {
+                console.log('true')
+            }
         })
     }
 
     onClickNightLanding = () => {
         this.setState({
             nightLanding: !this.state.nightLanding}, () => {
-        if (this.state.nightLanding === false) {
-            console.log('false')
-        } else if (this.state.nightLanding === true) {
-            console.log('true')
-          }
+            if (this.state.nightLanding === false) {
+                console.log('false')
+            } else if (this.state.nightLanding === true) {
+                console.log('true')
+            }
         })
     }
 
     render() {
         return (
             <div>
-            <SideNavBar handleLogout={this.handleLogout}/>
+             <SideNavBar handleLogout={this.handleLogout}/>
                 <h3>Flight Plan</h3>
-                <form action="#" className='formContainer'>
+                 <form action="#" className='formContainer'>
                     <div className='column'>
                         <div>
                             <Row>
@@ -166,7 +164,6 @@ class FlightPlanner  extends Component {
             </div>
         )
     }
-
 }
 
 

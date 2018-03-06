@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 
-
 var flightSchema = new mongoose.Schema ({
     aircraft: {
         type: String, 

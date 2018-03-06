@@ -25,8 +25,6 @@ function createFlight(req, res) {
     });
 }
 
-
-
 module.exports = {
     allFlights,
     createFlight,

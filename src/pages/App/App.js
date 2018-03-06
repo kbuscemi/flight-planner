@@ -81,9 +81,8 @@ class App extends Component {
             <div>
                 <Switch>
                     <Route exact path='/' render={() =>
-                    <LandingPage
-                    />
-                }/>
+                    <LandingPage />
+                    }/>
                     <Route exact path='/homepage' render={() =>( 
                         userService.getUser() ?
                         <HomePage 
