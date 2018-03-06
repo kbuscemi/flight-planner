@@ -5,4 +5,3 @@ const airportCtrl = require('../../controllers/airportController')
 router.get('/', airportCtrl.index)
 
 module.exports = router;
-

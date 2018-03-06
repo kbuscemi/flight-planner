@@ -9,7 +9,8 @@ import FlightPlanner from '../../components/FlightPlanner/FlightPlanner';
 import Maps from '../../components/Maps/Maps'
 import {
     Switch,
-    Route
+    Route,
+    Redirect
   } from 'react-router-dom';
 
 
@@ -22,9 +23,11 @@ class App extends Component {
         }
     }
 
-    handleLogout = () => {
+    handleLogout = (e) => {
+        e.preventDefault();
         userService.logout();
         this.setState({user: null});
+        this.props.history.push('/');
     }
 
     handleSignup = () => {
@@ -60,14 +63,14 @@ class App extends Component {
     
     componentDidMount() {
         let user = userService.getUser();
-        this.setState({user});
+        this.setState({ user });
 
         fetch("api/airports")
             .then(res => res.json())
             .then(airports => this.setState({ airports }))
             .catch(err => console.log(err))
 
-        userService.getFlights().then(flights => {
+        if (user) userService.getFlights().then(flights => {
             this.setState({ flights });
         });
 
@@ -76,18 +79,22 @@ class App extends Component {
     render() {
         return (
             <div>
-
                 <Switch>
                     <Route exact path='/' render={() =>
-                    <LandingPage />
-                    }/>
-                    <Route exact path='/homepage' render={() => 
-                    <HomePage
+                    <LandingPage
+                    />
+                }/>
+                    <Route exact path='/homepage' render={() =>( 
+                        userService.getUser() ?
+                        <HomePage 
                         user={this.state.user}
                         handleLogout={this.handleLogout}
                         flights={this.state.flights}
-                    />
-                    }/>
+                        />
+                        :
+                        <Redirect to='/login' />
+                        
+                    )}/>
                     <Route exact path='/signup' render={(props) =>
                         <SignupPage 
                             {...props} 
@@ -100,16 +107,22 @@ class App extends Component {
                             handleLogin={this.handleLogin}
                         />
                     }/>
-                    <Route exact path='/planner' render={() =>
-                        <FlightPlanner
-                            addFlightPlan={this.addFlightPlan}
-                        />
-                    }/>
-                    <Route exact path='/map' render={() => 
-                   <Maps 
-                        airports={this.state.airports}
-                    />  
-                    }/>
+                    <Route exact path='/planner' render={() => (
+                        userService.getUser() ?
+                            <FlightPlanner
+                                addFlightPlan={this.addFlightPlan}
+                            />
+                        :
+                        <Redirect to='/login' />
+                    )}/>
+                    <Route exact path='/map' render={() => (
+                        userService.getUser() ?
+                            <Maps 
+                                airports={this.state.airports}
+                            />
+                        :
+                        <Redirect to='/login' />  
+                    )}/>
                 </Switch>
             </div>
         )

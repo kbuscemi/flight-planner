@@ -37,7 +37,7 @@ class Maps extends Component {
         return (
             <div>
                 <div>
-                <Link to='/homepage'>Back</Link>
+                    <Link to='/homepage' className='backLink'>Back</Link>
                 </div>
                 <div className='map' ref={map => this.mapDiv = map} ></div>
             </div>

@@ -1,8 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import NavBar from '../NavBar/NavBar';
-import SideNav from './../SideNav/SideNav'
 import {Card, CardTitle} from 'react-materialize'
+import SideNavBar from '../../components/SideNavBar/SideNavBar'
 
 const HomePage = (props) => {
     const flightCard = props.flights.map((flight) => (
@@ -18,8 +17,12 @@ const HomePage = (props) => {
 
     return (
         <div>
-            {flightCard}
+            <SideNavBar handleLogout={props.handleLogout} user={props.user}/>
+            <div>
+                {flightCard}
+            </div>
         </div>
+    
     );
 }
 

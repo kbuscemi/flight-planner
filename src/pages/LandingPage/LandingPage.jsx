@@ -1,6 +1,5 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import NavBar from '../../components/NavBar/NavBar';
 import {Navbar, NavItem} from 'react-materialize';
 import './LandingPage.css'
 

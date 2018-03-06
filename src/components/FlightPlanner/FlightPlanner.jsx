@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './FlightPlanner.css';
-import SideNav from './../SideNav/SideNav'
+import SideNavBar from '../../components/SideNavBar/SideNavBar'
 import {Row, 
         Input,
         Modal,
@@ -84,9 +84,7 @@ class FlightPlanner  extends Component {
     render() {
         return (
             <div>
-              <div>
-                  <SideNav />
-              </div>
+            <SideNavBar handleLogout={this.handleLogout}/>
                 <h3>Flight Plan</h3>
                 <form action="#" className='formContainer'>
                     <div className='column'>

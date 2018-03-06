@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import userService from '../../utils/userService';
-// import {Navbar} from 'react-materialize'
 import './LoginForm.css'
 
 class LoginForm extends Component {
