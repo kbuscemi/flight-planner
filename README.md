@@ -13,7 +13,7 @@ The idea to build Flight Tracker came to me during a conversation I was havig on
 * Google Places API
 * JavaScript
 * JSON WebTokens
-* MongoDB / mOngoose
+* MongoDB / Mongoose
 * HTML
 * React Materialize
 * CSS
